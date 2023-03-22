@@ -15,9 +15,14 @@ console.log("Inverted alg test:", invert_alg("R U R'"))
 const input = document.querySelector(".input");
 function register(elem, f) {
   const output = elem.querySelector(".output");
+  const durationElem = elem.querySelector(".duration");
+  durationElem.textContent = "";
   input.addEventListener("input", () => {
     try {
+      const start = performance.now();
       output.textContent = f(input.value);
+      const duration = performance.now() - start;
+      durationElem.textContent = ` (≈${Math.round(duration * 1_000)}µs)`;
       output.classList.remove("error");
     } catch(e) {
       output.textContent = e;
