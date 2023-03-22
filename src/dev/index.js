@@ -35,3 +35,15 @@ register(document.querySelector("#rust"), invert_alg)
 register(document.querySelector("#js"), (s) => {
   return new Alg(s).invert().toString()
 })
+
+document.getElementById("use-wr").addEventListener("click", () => {
+  input.value = `y x' // inspection
+U R2 U' F' L F' U' L' // XX-Cross + EO
+U' R U R' // 3rd slot
+R' U R U2' R' U R // 4th slot
+U R' U' R U' R' U2 R // OLL / ZBLL
+U // AUF
+
+// from http://cubesolv.es/solve/5757`;
+  input.dispatchEvent(new CustomEvent("input"));
+});
