@@ -10,7 +10,7 @@ await init()
 console.log("Initialized!")
 console.log("Inverted alg test:", invert_alg("R U R'"))
 
-const input = document.querySelector("input");
+const input = document.querySelector(".input");
 function register(elem, f) {
   const output = elem.querySelector(".output");
   input.addEventListener("input", () => {
