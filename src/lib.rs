@@ -1,5 +1,6 @@
 mod utils;
 
+use cubing::parse_alg;
 use wasm_bindgen::prelude::*;
 
 // When the `wee_alloc` feature is enabled, use `wee_alloc` as the global
@@ -9,11 +10,17 @@ use wasm_bindgen::prelude::*;
 static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 
 #[wasm_bindgen]
-extern {
+extern "C" {
     fn alert(s: &str);
 }
 
 #[wasm_bindgen]
 pub fn greet() {
     alert("Hello, hello-wasm!");
+}
+
+#[wasm_bindgen]
+pub fn invert_alg(alg_str: String) -> Result<String, String> {
+    let parsed = parse_alg!(alg_str)?;
+    Ok(parsed.invert().to_string())
 }
