@@ -1,7 +1,7 @@
 
 console.log("loading…")
 
-import {Alg} from "https://cdn.cubing.net/js/cubing/alg";
+import {Alg} from "cubing/alg";
 import {default as init, internal_init, invert_alg} from "./hello_wasm.js"
 
 console.log("Initializating WASM")

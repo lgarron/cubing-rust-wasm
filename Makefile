@@ -2,6 +2,8 @@
 build:
 	wasm-pack build --target web
 	cp -R ./src/dev/ pkg/
+	cat "./pkg/package.json" | jq ".type = \"module\"" > ./pkg/package.json.tmp
+	mv ./pkg/package.json.tmp ./pkg/package.json
 
 .PHONY: serve-build
 serve-build: build
