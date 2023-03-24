@@ -12,6 +12,11 @@ await internal_init()
 console.log("Initialized!")
 console.log("Inverted alg test:", invert_alg("R U R'"))
 
+if (!globalThis.document) {
+  console.info("Not running in a browser. Exiting!");
+  process.exit(1)
+}
+
 const input = document.querySelector(".input");
 function register(elem, f) {
   const output = elem.querySelector(".output");

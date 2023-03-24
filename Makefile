@@ -2,6 +2,7 @@
 build:
 	wasm-pack build --target web
 	cp -R ./src/dev/ pkg/
+	node ./script/node-esm-compat.js
 	cat "./pkg/package.json" | jq ".type = \"module\"" > ./pkg/package.json.tmp
 	mv ./pkg/package.json.tmp ./pkg/package.json
 
@@ -12,7 +13,6 @@ serve-build: build
 .PHONY: clean
 clean:
 	rm -rf pkg
-
 
 DEPLOY_SOURCE_PATH = ./pkg/
 DEPLOY_SITE_PATH   = experiments.cubing.net/rust/wasm/
