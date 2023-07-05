@@ -1,7 +1,7 @@
 import { readdir, readFile, writeFile } from "fs/promises";
 import { join } from "path";
 
-const filePath = new URL("../pkg/hello_wasm.js", import.meta.url);
+const filePath = new URL("../pkg/cubing_rust_wasm.js", import.meta.url);
 
 let modified = false; // For idempotence
 
