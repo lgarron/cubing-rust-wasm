@@ -27,6 +27,6 @@ pub fn internal_init() {
 
 #[wasm_bindgen]
 pub fn invert_alg(alg_str: String) -> Result<String, String> {
-    let parsed = parse_alg!(alg_str)?;
+    let parsed = parse_alg!(alg_str).map_err(|e| e.description)?;
     Ok(parsed.invert().to_string())
 }
